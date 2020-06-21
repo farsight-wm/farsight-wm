@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <plugins>
+    <plugin>
+      <name>farsight-wm:is-package-maven-plugin</name>
+      <prefix>is-package</prefix>
+      <artifactId>is-package-maven-plugin</artifactId>
+    </plugin>
+  </plugins>
+</metadata>

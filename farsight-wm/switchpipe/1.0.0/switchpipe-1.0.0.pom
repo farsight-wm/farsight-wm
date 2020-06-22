@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>farsight-wm</groupId>
+		<artifactId>wm-parent</artifactId>
+		<version>10.5.0</version>
+		<relativePath>../wm-parent/pom.xml</relativePath>
+	</parent>
+	<artifactId>switchpipe</artifactId>
+	<version>1.0.0</version>
+	<packaging>jar</packaging>
+
+	<name>farsight-wm-switchpipe</name>
+	<description>Save and restore pipelines easily for development and maintenance purposes</description>
+	<url>https://github.com/farsight-wm/switchpipe</url>
+
+	<issueManagement>
+		<url>https://github.com/farsight-wm/switchpipe/issues</url>
+		<system>GitHub.com</system>
+	</issueManagement>
+	
+	<scm>
+		<url>https://github.com/farsight-wm/switchpipe</url>
+		<connection>scm:git:https://github.com/farsight-wm/switchpipe.git</connection>
+		<developerConnection>scm:git:https://github.com/farsight-wm/switchpipe.git</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
+
+	<licenses>
+		<license>
+			<name>The MIT License (MIT)</name>
+			<url>https://opensource.org/licenses/MIT</url>
+			<distribution>manual</distribution>
+		</license>
+	</licenses>
+	
+	<developers>
+		<developer>
+			<name>Cornelius Wicke</name>
+			<url>https://www.xing.com/profile/Cornelius_Wicke</url>
+		</developer>
+	</developers>
+
+	<dependencies>
+		<dependency>
+			<groupId>farsight-wm</groupId>
+			<artifactId>utils</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.softwareag.webmethods</groupId>
+			<artifactId>wm-isclient</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.softwareag.webmethods</groupId>
+			<artifactId>wm-isserver</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.vintage</groupId>
+			<artifactId>junit-vintage-engine</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<!-- plugin to build is package -->
+			<plugin>
+				<groupId>farsight-wm</groupId>
+				<artifactId>is-package-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>is-package</goal>
+						</goals>
+						<configuration>
+							<packages>
+								<package>
+									<name>FarsightWmSwitchpipe</name>
+									<jars>
+										<jar>
+											<id>farsight-wm:utils</id>
+										</jar>
+										<jar>
+											<id>farsight-wm:switchpipe</id>
+										</jar>
+									</jars>
+								</package>
+							</packages>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

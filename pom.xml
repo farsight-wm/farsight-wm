@@ -51,7 +51,7 @@
 		<powermock.version>1.6.5</powermock.version>
 		<mockito.version>1.10.19</mockito.version>
 		<assertj.version>3.15.0</assertj.version>
-		
+
 		<!-- github maven repository -->
 		<github.global.server>github</github.global.server>
 		<staging.repository.directory>${project.basedir}/../farsight-wm-mvn-repo</staging.repository.directory>
@@ -177,32 +177,6 @@
 					</execution>
 				</executions>
 			</plugin>
-			<plugin>
-				<groupId>com.github.github</groupId>
-				<artifactId>site-maven-plugin</artifactId>
-				<version>0.11</version>
-				<configuration>
-					<message>Maven artifacts for
-						${project.artifactId}:${project.version}</message>
-					<noJekyll>true</noJekyll>
-					<outputDirectory>internal.repo::default::file://${staging.repository.directory}</outputDirectory>
-					<branch>refs/heads/mvn-repo</branch>
-					<includes>
-						<include>**/*</include>
-					</includes>
-					<merge>true</merge>
-					<repositoryName>farsight-wm</repositoryName>
-					<repositoryOwner>farsight-wm</repositoryOwner>
-				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>site</goal>
-						</goals>
-						<phase>deploy</phase>
-					</execution>
-				</executions>
-			</plugin>
 		</plugins>
 	</build>
 
@@ -213,4 +187,18 @@
 			<url>file://${staging.repository.directory}</url>
 		</repository>
 	</distributionManagement>
+
+	<repositories>
+		<repository>
+			<id>farsight-wm</id>
+			<name>farsight-wm at github.com</name>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<url>https://raw.githubusercontent.com/farsight-wm/farsight-wm/mvn-repo</url>
+		</repository>
+	</repositories>
 </project>
